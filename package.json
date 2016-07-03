@@ -1,0 +1,35 @@
+{
+  "name": "hexo-algoliasearch",
+  "version": "0.1.0",
+  "description": "A plugin to index posts of your Hexo blog on Algolia",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LouisBarranqueiro/hexo-algolia.git"
+  },
+  "keywords": [
+    "hexo",
+    "algolia",
+    "algoliasearch",
+    "plugin"
+  ],
+  "author": "Louis Barranqueiro",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/LouisBarranqueiro/hexo-algoliasearch/issues"
+  },
+  "homepage": "https://github.com/LouisBarranqueiro/hexo-algoliasearch#readme",
+  "dependencies": {
+    "algoliasearch": "^3.16.0",
+    "async": "^2.0.0-rc.6",
+    "hexo-util": "^0.6.0",
+    "lodash": "^4.13.1"
+  },
+  "devDependencies": {
+    "eslint-config-google": "^0.6.0"
+  }
+}
