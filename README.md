@@ -32,10 +32,11 @@ algolia:
     - tags
     - slug
     - excerpt
-    - content
+    - excerpt:strip
     - photos
     - gallery
 ```
+
 | Key            | Type   | Default | Description |
 | -------------- | ------ | ------- | ----------- |
 | appId          | String |         | Your application ID. |
@@ -43,7 +44,22 @@ algolia:
 | adminApiKey    | String |         | Your adminAPI key. It is use to create, delete, update your indexes |
 | chunkSize      | Number | 5000    | Records/posts are split in chunks to upload them. Algolia recommend to use `5000` for best performance. Be careful, if you are indexing post content, It can fail because of size limit. To overcome this, decrease size of chunks until it pass. |
 | indexName      | String |         | The name of the index in which posts are stored. |
-| fields         | List   |         | The list of the field names to index. |
+| fields         | List   |         | The list of the field names to index. Separate field name and action name with `:`. Read [Actions](#actions) for more information |
+
+#### Actions
+
+Actions give you the ability to process value of a field before indexation. 
+
+##### List of actions :
+- **strip** : strip HTML. It can be useful for excerpt and content value  
+
+##### Example
+
+- fields:
+   excerpt:strip
+
+It will add an `excerptStrip` property to the post object containing excerpt without HTML tags.
+
 
 ## Usage
 
