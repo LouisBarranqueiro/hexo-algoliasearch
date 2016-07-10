@@ -48,9 +48,10 @@ algolia:
 
 #### Actions
 
-Actions give you the ability to process value of a field before indexation. 
+Actions give you the ability to process value of a fields before indexation. 
 
 ##### List of actions :
+
 - **strip** : strip HTML. It can be useful for excerpt and content value  
 
 ##### Example
@@ -58,8 +59,7 @@ Actions give you the ability to process value of a field before indexation.
 - fields:
    excerpt:strip
 
-It will add an `excerptStrip` property to the post object containing excerpt without HTML tags.
-
+It will add an `excerptStrip` property to the post object containing excerpt without HTML tags before indexation.
 
 ## Usage
 
