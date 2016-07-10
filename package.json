@@ -1,6 +1,6 @@
 {
   "name": "hexo-algoliasearch",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A plugin to index posts of your Hexo blog on Algolia",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "hexo",
     "algolia",
     "algoliasearch",
+    "search",
     "plugin"
   ],
   "author": "Louis Barranqueiro",
