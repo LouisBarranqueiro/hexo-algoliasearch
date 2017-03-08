@@ -40,16 +40,16 @@ algolia:
 
 | Key            | Type   | Default | Description |
 | -------------- | ------ | ------- | ----------- |
-| appId          | String |         | Your application ID. |
-| apiKey         | String |         | Your API key (read only). It is use to search in an index. |
-| adminApiKey    | String |         | Your adminAPI key. It is use to create, delete, update your indexes |
+| appId          | String |         | Your application ID. Optional, if the environment variable ALGOLIA_APP_ID is set|
+| apiKey         | String |         | Your API key (read only). It is use to search in an index. Optional, if the environment variable ALGOLIA_API_KEY is set|
+| adminApiKey    | String |         | Your adminAPI key. It is use to create, delete, update your indexes. Optional, if the environment variable ALGOLIA_ADMIN_API_KEY is set |
 | chunkSize      | Number | 5000    | Records/posts are split in chunks to upload them. Algolia recommend to use `5000` for best performance. Be careful, if you are indexing post content, It can fail because of size limit. To overcome this, decrease size of chunks until it pass. |
-| indexName      | String |         | The name of the index in which posts are stored. |
+| indexName      | String |         | The name of the index in which posts are stored. Optional, if the environment variable ALGOLIA_INDEX_NAME is set|
 | fields         | List   |         | The list of the field names to index. Separate field name and action name with `:`. Read [Actions](#actions) for more information |
 
 #### Actions
 
-Actions give you the ability to process value of a fields before indexation. 
+Actions give you the ability to process value of a fields before indexation.
 
 ##### List of actions :
 
