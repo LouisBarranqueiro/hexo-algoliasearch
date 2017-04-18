@@ -46,6 +46,8 @@ algolia:
 | apiKey         | String |         | Your API key (read only). It is use to search in an index. |
 | adminApiKey    | String |         | Your adminAPI key. It is use to create, delete, update your indexes |
 | chunkSize      | Number | 5000    | Records/posts are split in chunks to upload them. Algolia recommend to use `5000` for best performance. Be careful, if you are indexing post content, It can fail because of size limit. To overcome this, decrease size of chunks until it pass. |
+| excerptLimit   | Number |         | The number of words or characters to strip for the excerpt. Default to `200`. |
+| excerptSeparator   | String |         | Separator between words. Use `' '` so that excerptLimit becomes English word count. Default to `''` so that excerptLimit is character count. |
 | indexName      | String |         | The name of the index in which posts are stored. |
 | fields         | List   |         | The list of the field names to index. Separate field name and action name with `:`. Read [Actions](#actions) for more information |
 
