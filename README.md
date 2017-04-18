@@ -28,6 +28,8 @@ algolia:
   adminApiKey: "40321c7c207e7f73b63a19aa24c4761b"
   chunkSize: 5000
   indexName: "my-hexo-blog"
+  excerptLimit: 200
+  excerptSeparator: ''
   fields:
     - title
     - tags
