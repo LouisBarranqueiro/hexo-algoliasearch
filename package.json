@@ -25,10 +25,10 @@
   },
   "homepage": "https://github.com/LouisBarranqueiro/hexo-algoliasearch#readme",
   "dependencies": {
-    "algoliasearch": "^3.16.0",
-    "async": "^2.0.0-rc.6",
-    "hexo-util": "^0.6.0",
-    "lodash": "^4.13.1"
+    "algoliasearch": "3.24.6",
+    "async": "2.6.0",
+    "hexo-util": "0.6.2",
+    "lodash": "4.17.4"
   },
   "devDependencies": {
     "eslint": "4.11.0",
