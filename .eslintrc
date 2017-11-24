@@ -1,6 +1,7 @@
 {
     "extends": "google",
     "rules": {
+        "no-var": [0],
         "comma-dangle": [2,"never"],
         "valid-jsdoc": [2, {
             "requireReturnDescription": false,
