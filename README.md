@@ -77,4 +77,4 @@ hexo algolia
 
 # Licence
 
-hexo-algoliasearch is under [GNU General Public License v3.0](https://github.com/LouisBarranqueiro/hexo-algoliasearch/blob/master/LICENSE)
+hexo-algoliasearch is under [MIT](https://github.com/LouisBarranqueiro/hexo-algoliasearch/blob/master/LICENSE)
