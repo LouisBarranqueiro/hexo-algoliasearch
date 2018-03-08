@@ -9,7 +9,7 @@ A plugin to index posts of your Hexo blog on Algolia
 npm install hexo-algoliasearch --save
 ```
 
-If Hexo detect automatically all plugins, that's all.  
+If Hexo detect automatically all plugins, that's all.
 
 If that is not the case, register the plugin in your `_config.yml` file :
 ```
@@ -29,7 +29,7 @@ algolia:
   chunkSize: 5000
   indexName: "my-hexo-blog"
   fields:
-    - excerpt
+    - content:strip:truncate,0,500
     - excerpt:strip
     - gallery
     - permalink
@@ -46,22 +46,32 @@ algolia:
 | adminApiKey    | String |         | Your adminAPI key. It is use to create, delete, update your indexes. Optional, if the environment variable `ALGOLIA_ADMIN_API_KEY` is set |
 | chunkSize      | Number | 5000    | Records/posts are split in chunks to upload them. Algolia recommend to use `5000` for best performance. Be careful, if you are indexing post content, It can fail because of size limit. To overcome this, decrease size of chunks until it pass. |
 | indexName      | String |         | The name of the index in which posts are stored. Optional, if the environment variable `ALGOLIA_INDEX_NAME` is set|
-| fields         | List   |         | The list of the field names to index. Separate field name and action name with `:`. Read [Actions](#actions) for more information |
+| fields         | List   |         | The list of the field names to index. Separate field name and filters with `:`. Read [Filters](#filters) for more information |
 
-#### Actions
+#### Filters
 
-Actions give you the ability to process value of a fields before indexation.
+Filters give you the ability to process value of fields before indexation.
+Filters are separated each others by colons (`:`) and may have optional arguments separated by commas (`,`).
+Multiple filters can be chained. The output of one filter is applied to the next.
 
-##### List of actions :
+##### List of filters:
 
-- **strip** : strip HTML. It can be useful for excerpt and content value  
+
+| Filter     | Signature                              | Syntax           | Description |
+| ---------- | -------------------------------------- | ---------------- | ----------- |
+| strip      | `strip()`                              | `strip`          | Strip HTML. It can be useful for excerpt and content value to not index HTML tags and attributes. |
+| truncate   | `truncate(start: number, end: number)` | `truncate,0,300` | Truncate string from `start` index to `end` index. Algolia has some limitations about record size so it might be useful to cut post contents. |
+
 
 ##### Example
 
-- fields:
-   excerpt:strip
+``` yml
+  fields:
+    - content:strip:truncate,0,200
+```
 
-It will add an `excerptStrip` property to the post object containing excerpt without HTML tags before indexation.
+It will strip HTML from `content` value then truncate the result starting from index `0` to index `200` before indexation.
+This property will be added to algolia records as `contentStripTruncate`
 
 ## Usage
 
