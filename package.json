@@ -28,7 +28,7 @@
     "algoliasearch": "3.33.0",
     "async": "2.6.2",
     "hexo-util": "0.6.3",
-    "lodash": "4.17.4"
+    "lodash": "4.17.11"
   },
   "devDependencies": {
     "eslint": "4.19.1",
