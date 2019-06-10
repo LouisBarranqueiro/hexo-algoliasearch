@@ -27,7 +27,7 @@
   "dependencies": {
     "algoliasearch": "3.33.0",
     "async": "2.6.0",
-    "hexo-util": "0.6.2",
+    "hexo-util": "0.6.3",
     "lodash": "4.17.4"
   },
   "devDependencies": {
