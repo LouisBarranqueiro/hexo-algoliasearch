@@ -1,3 +1,7 @@
 node_modules
 .eslintignore
 .eslintrc
+.github
+.idea
+.travis.yml
+renovate.json
