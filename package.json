@@ -31,7 +31,7 @@
     "lodash": "4.17.11"
   },
   "devDependencies": {
-    "eslint": "6.0.0",
+    "eslint": "6.0.1",
     "eslint-config-google": "0.13.0"
   }
 }
