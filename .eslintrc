@@ -1,21 +1,88 @@
 {
-    "extends": "google",
-    "rules": {
-        "no-var": [0],
-        "comma-dangle": [2,"never"],
-        "valid-jsdoc": [2, {
-            "requireReturnDescription": false,
-            "requireParamDescription": false
-        }],
-        "brace-style": [2, "stroustrup"],
-        "no-trailing-spaces": [2, {"skipBlankLines": true }],
-        "eqeqeq":[1],
-        "max-len": [1, 100, 4, {"ignoreUrls": true}]
+    "parser": "babel-eslint",
+    "extends": [
+        "eslint:recommended"
+    ],
+    "env": {
+        "es6": true,
+        "node": true
     },
     "globals": {
-        "hexo": false
+        "hexo": true
     },
-    "env": {
-        "node": true
+    "rules": {
+        "max-len": [
+            2,
+            {
+                "code": 130
+            }
+        ],
+        "brace-style": [
+            2,
+            "stroustrup",
+            {
+                "allowSingleLine": true
+            }
+        ],
+        "semi": [
+            2,
+            "never"
+        ],
+        "quotes": [
+            2,
+            "single"
+        ],
+        "one-var": [
+            2,
+            "never"
+        ],
+        "padded-blocks": [
+            2,
+            "never"
+        ],
+        "space-before-function-paren": [
+            2,
+            "never"
+        ],
+        "no-console": [
+            "error",
+            {
+                "allow": [
+                    "warn",
+                    "error"
+                ]
+            }
+        ],
+        "no-trailing-spaces": [
+            2,
+            {
+                "skipBlankLines": true
+            }
+        ],
+        "operator-linebreak": [
+            2,
+            "after",
+            {
+                "overrides": {
+                    "?": "ignore",
+                    ":": "ignore"
+                }
+            }
+        ],
+        "quote-props": [
+            2,
+            "as-needed"
+        ],
+        "valid-jsdoc": [
+            2,
+            {
+                "requireReturnDescription": false,
+                "requireParamDescription": false
+            }
+        ],
+        "multiline-ternary": [
+            2,
+            "always-multiline"
+        ]
     }
 }

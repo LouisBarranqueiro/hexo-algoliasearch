@@ -4,8 +4,11 @@
   "description": "A plugin to index posts of your Hexo blog on Algolia",
   "main": "index.js",
   "scripts": {
+    "build": "./node_modules/@babel/cli/bin/babel.js src --out-dir lib",
     "lint": "./node_modules/.bin/eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:fix": "./node_modules/.bin/eslint . --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -32,6 +35,12 @@
   },
   "devDependencies": {
     "eslint": "6.0.1",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.0.2",
     "eslint-config-google": "0.13.0"
   }
 }
