@@ -29,7 +29,7 @@
   "homepage": "https://github.com/LouisBarranqueiro/hexo-algoliasearch#readme",
   "dependencies": {
     "algoliasearch": "3.33.0",
-    "async": "3.0.1",
+    "async": "3.1.0",
     "hexo-util": "0.6.3",
     "lodash": "4.17.11"
   },
