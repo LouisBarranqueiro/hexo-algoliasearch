@@ -3,8 +3,10 @@ import algoliaCommand, {
   getBasicFields,
   getFieldsWithFilters,
   indexPostsOnAlgolia,
+  pick,
   preparePosts,
-  splitIntoChunks
+  splitIntoChunks,
+  upperFirst
 } from '../algolia'
 import Hexo from 'hexo'
 import algoliasearch, {mocks as algoliasearchMocks} from 'algoliasearch'
@@ -32,6 +34,25 @@ const TEST_BLOG_PATH = process.cwd() + '/test_blog'
 describe('algolia', () => {
   beforeEach(() => {
     jest.clearAllMocks()
+  })
+
+  describe('pick()', () => {
+    it('should pick specified and existing properties', () => {
+      const post = {
+        id: 123123,
+        content: 'content',
+        title: 'title'
+      }
+      expect(pick(post, ['id', 'title', 'unknownProp']))
+        .toEqual({id: post.id, title: post.title})
+    })
+  })
+
+  describe('upperFirst()', () => {
+    it('should upper case the first char of the string', () => {
+      expect(upperFirst('a String')).toEqual('A String')
+      expect(upperFirst('A String')).toEqual('A String')
+    })
   })
 
   describe('getBasicFields()', () => {

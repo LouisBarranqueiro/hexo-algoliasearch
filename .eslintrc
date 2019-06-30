@@ -84,6 +84,7 @@
         "multiline-ternary": [
             2,
             "always-multiline"
-        ]
+        ],
+        "no-prototype-builtins": [0]
     }
 }

@@ -1,15 +1,40 @@
-import _ from 'lodash'
-import hexoUtil from 'hexo-util'
-
+import striptags from 'striptags'
 import algoliasearch from 'algoliasearch'
 
 const FILTER_FUNCTIONS = {
-  strip: hexoUtil.stripHTML,
+  strip: striptags,
   truncate: function(post, start, end) {
     return post.substr(start, end)
   }
 }
 
+/**
+ * Pick specified attributes of a given object
+ *
+ * @param {Object} object - The object to pick the attribute from
+ * @param {Array} attributes - The attributes to pick from the given object
+ * @returns {Object}
+ */
+export const pick = (object, attributes) => {
+  const newObject = {}
+  attributes.forEach((attribute) => {
+    if (object.hasOwnProperty(attribute)) {
+      newObject[attribute] = object[attribute]
+    }
+  })
+
+  return newObject
+}
+
+/**
+ * Upper case the first character of a string
+ *
+ * @param {String} string - The string to update
+ * @returns {string}
+ */
+export const upperFirst = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
 /**
  * Split an `Array` into chunk
  *
@@ -38,7 +63,7 @@ export const preparePosts = (posts, fields, fieldsWithFilters) => {
   const tagsAndCategoriesFields = ['tags', 'categories'].filter((field) => fields.includes(field))
 
   return posts.map((initialPost) => {
-    const postToIndex = _.pick(initialPost, fields)
+    const postToIndex = pick(initialPost, fields)
     // define a unique ID to identfy this post on Algolia
     postToIndex.objectID = initialPost._id
 
@@ -56,7 +81,7 @@ export const preparePosts = (posts, fields, fieldsWithFilters) => {
       const fieldFilters = field.split(':')
       const fieldName = fieldFilters.shift()
 
-      if (!initialPost.hasOwnProperty(fieldName)) { // eslint-disable-line
+      if (!initialPost.hasOwnProperty(fieldName)) {
         hexo.log.warn(`"${initialPost.title}" post has no "${fieldName}" field.`)
         return
       }
@@ -67,7 +92,7 @@ export const preparePosts = (posts, fields, fieldsWithFilters) => {
         const filterArgs = filter.split(',')
         const filterName = filterArgs.shift()
 
-        indexedFieldName.push(_.upperFirst(filterName))
+        indexedFieldName.push(upperFirst(filterName))
         filterArgs.unshift(fieldValue)
         // execute filter on field value
         fieldValue = FILTER_FUNCTIONS[filterName].apply(this, filterArgs)
