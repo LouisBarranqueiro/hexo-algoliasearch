@@ -115,8 +115,6 @@ export const preparePosts = (posts, fields, fieldsWithFilters) => {
  * @returns {void}
  */
 export const indexPostsOnAlgolia = (algoliaIndex, posts, chunkSize) => {
-  // split our results into chunks of 5,000 objects,
-  // to get a good indexing/insert performance
   const chunkedPosts = splitIntoChunks(posts, chunkSize)
   return Promise.all(chunkedPosts.map((posts) => {
     return new Promise((resolve, reject) => {
@@ -170,7 +168,8 @@ const algoliaCommand = async(hexo, args, callback) => {
   const algoliaAppId = process.env.ALGOLIA_APP_ID || algoliaConfig.appId
   const algoliaAdminApiKey = process.env.ALGOLIA_ADMIN_API_KEY || algoliaConfig.adminApiKey
   const algoliaIndexName = process.env.ALGOLIA_INDEX_NAME || algoliaConfig.indexName
-  const algoliaChunkSize = algoliaConfig.chunkSize
+  // Algolia recommendation: split posts into chunks of 5000 to get a good indexing/insert performance
+  const algoliaChunkSize = algoliaConfig.chunkSize || 5000
 
   await hexo.call('generate')
   await hexo.database.load()

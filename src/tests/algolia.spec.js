@@ -192,7 +192,9 @@ describe('algolia', () => {
 
       const indexedPosts = algoliaIndex.saveObjects.mock.calls[0][0]
       // freeze ID of posts because we later use snapshots and these IDs change
-      indexedPosts[0].objectID = 1
+      algoliaIndex.saveObjects.mock.calls[0][0].forEach((post, index) => {
+        post.objectID = index
+      })
 
       expect(algoliasearch).toHaveBeenCalledWith(process.env.ALGOLIA_APP_ID, process.env.ALGOLIA_ADMIN_API_KEY)
       expect(algoliaClient.initIndex).toHaveBeenCalledWith(process.env.ALGOLIA_INDEX_NAME)
@@ -214,15 +216,15 @@ describe('algolia', () => {
       await algoliaCommand(hexo, {}, () => {})
 
       const algoliaConfig = hexo.config.algolia
-      const indexedPosts = algoliaIndex.saveObjects.mock.calls[0][0]
       // freeze ID of posts because we later use snapshots and these IDs change
-      indexedPosts[0].objectID = 1
-
+      algoliaIndex.saveObjects.mock.calls[0][0].forEach((post, index) => {
+        post.objectID = index
+      })
       expect(algoliasearch).toHaveBeenCalledWith(algoliaConfig.appId, algoliaConfig.adminApiKey)
       expect(algoliaClient.initIndex).toHaveBeenCalledWith(algoliaConfig.indexName)
       expect(algoliaIndex.clearIndex).toHaveBeenCalledTimes(1)
       expect(algoliaIndex.saveObjects).toHaveBeenCalledTimes(1)
-      expect(indexedPosts).toMatchSnapshot()
+      expect(algoliaIndex.saveObjects.mock.calls).toMatchSnapshot()
     })
 
     it('should not clear index and index posts on Algolia', async() => {
@@ -235,15 +237,16 @@ describe('algolia', () => {
       await algoliaCommand(hexo, options, () => {})
 
       const algoliaConfig = hexo.config.algolia
-      const indexedPosts = algoliaIndex.saveObjects.mock.calls[0][0]
       // freeze ID of posts because we later use snapshots and these IDs change
-      indexedPosts[0].objectID = 1
+      algoliaIndex.saveObjects.mock.calls[0][0].forEach((post, index) => {
+        post.objectID = index
+      })
 
       expect(algoliasearch).toHaveBeenCalledWith(algoliaConfig.appId, algoliaConfig.adminApiKey)
       expect(algoliaClient.initIndex).toHaveBeenCalledWith(algoliaConfig.indexName)
       expect(algoliaIndex.clearIndex).not.toHaveBeenCalled()
       expect(algoliaIndex.saveObjects).toHaveBeenCalledTimes(1)
-      expect(indexedPosts).toMatchSnapshot()
+      expect(algoliaIndex.saveObjects.mock.calls).toMatchSnapshot()
     })
 
     it('should exit and log error if the Algolia index cannot be cleared', async() => {
@@ -304,6 +307,21 @@ describe('algolia', () => {
 
       expect(algoliasearch).not.toHaveBeenCalled()
       expect(callbackCommand).toHaveBeenCalledWith()
+    })
+
+    it('should use the specified chunk size to index post', async() => {
+      const algoliaIndex = algoliasearchMocks.algoliaIndex
+      const hexo = new Hexo(TEST_BLOG_PATH)
+      await hexo.init()
+      hexo.config.algolia.chunkSize = 1
+      await algoliaCommand(hexo, {}, () => {})
+
+      // freeze ID of posts because we later use snapshots and these IDs change
+      algoliaIndex.saveObjects.mock.calls.forEach((call, idx) => {
+        call[0][0].objectID = idx
+      })
+
+      expect(algoliaIndex.saveObjects.mock.calls).toMatchSnapshot()
     })
   })
 })

@@ -2,49 +2,129 @@
 
 exports[`algolia algoliaCommand() should clear index and index posts on Algolia (Hexo config) 1`] = `
 Array [
-  Object {
-    "contentStripTruncate": "This is a test post
+  Array [
+    Array [
+      Object {
+        "contentStripTruncate": "This is the content of the post 1
 ",
-    "excerptStrip": "",
-    "objectID": 1,
-    "permalink": "http://localhost:4000/2019/06/30/hello-world/",
-    "photos": Array [],
-    "slug": "hello-world",
-    "tags": Array [],
-    "title": "Hello World",
-  },
+        "excerptStrip": "",
+        "objectID": 0,
+        "permalink": "http://localhost:4000/2019/06/30/post-1/",
+        "photos": Array [],
+        "slug": "post-1",
+        "tags": Array [],
+        "title": "Post 1",
+      },
+      Object {
+        "contentStripTruncate": "This is the content of the post 2
+",
+        "excerptStrip": "",
+        "objectID": 1,
+        "permalink": "http://localhost:4000/2019/06/30/post-2/",
+        "photos": Array [],
+        "slug": "post-2",
+        "tags": Array [],
+        "title": "Post 2",
+      },
+    ],
+    [Function],
+  ],
 ]
 `;
 
 exports[`algolia algoliaCommand() should clear index and index posts on Algolia (environment variables) 1`] = `
 Array [
   Object {
-    "contentStripTruncate": "This is a test post
+    "contentStripTruncate": "This is the content of the post 1
+",
+    "excerptStrip": "",
+    "objectID": 0,
+    "permalink": "http://localhost:4000/2019/06/30/post-1/",
+    "photos": Array [],
+    "slug": "post-1",
+    "tags": Array [],
+    "title": "Post 1",
+  },
+  Object {
+    "contentStripTruncate": "This is the content of the post 2
 ",
     "excerptStrip": "",
     "objectID": 1,
-    "permalink": "http://localhost:4000/2019/06/30/hello-world/",
+    "permalink": "http://localhost:4000/2019/06/30/post-2/",
     "photos": Array [],
-    "slug": "hello-world",
+    "slug": "post-2",
     "tags": Array [],
-    "title": "Hello World",
+    "title": "Post 2",
   },
 ]
 `;
 
 exports[`algolia algoliaCommand() should not clear index and index posts on Algolia 1`] = `
 Array [
-  Object {
-    "contentStripTruncate": "This is a test post
+  Array [
+    Array [
+      Object {
+        "contentStripTruncate": "This is the content of the post 1
 ",
-    "excerptStrip": "",
-    "objectID": 1,
-    "permalink": "http://localhost:4000/2019/06/30/hello-world/",
-    "photos": Array [],
-    "slug": "hello-world",
-    "tags": Array [],
-    "title": "Hello World",
-  },
+        "excerptStrip": "",
+        "objectID": 0,
+        "permalink": "http://localhost:4000/2019/06/30/post-1/",
+        "photos": Array [],
+        "slug": "post-1",
+        "tags": Array [],
+        "title": "Post 1",
+      },
+      Object {
+        "contentStripTruncate": "This is the content of the post 2
+",
+        "excerptStrip": "",
+        "objectID": 1,
+        "permalink": "http://localhost:4000/2019/06/30/post-2/",
+        "photos": Array [],
+        "slug": "post-2",
+        "tags": Array [],
+        "title": "Post 2",
+      },
+    ],
+    [Function],
+  ],
+]
+`;
+
+exports[`algolia algoliaCommand() should use the specified chunk size to index post 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "contentStripTruncate": "This is the content of the post 1
+",
+        "excerptStrip": "",
+        "objectID": 0,
+        "permalink": "http://localhost:4000/2019/06/30/post-1/",
+        "photos": Array [],
+        "slug": "post-1",
+        "tags": Array [],
+        "title": "Post 1",
+      },
+    ],
+    [Function],
+  ],
+  Array [
+    Array [
+      Object {
+        "contentStripTruncate": "This is the content of the post 2
+",
+        "excerptStrip": "",
+        "objectID": 1,
+        "permalink": "http://localhost:4000/2019/06/30/post-2/",
+        "photos": Array [],
+        "slug": "post-2",
+        "tags": Array [],
+        "title": "Post 2",
+      },
+    ],
+    [Function],
+  ],
 ]
 `;
 

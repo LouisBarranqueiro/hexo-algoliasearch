@@ -84,7 +84,6 @@ algolia:
   appId: "hexo-algolia-app-id"
   apiKey: "hexo-agolia-api-key"
   adminApiKey: "hexo-agolia-admin-api-key"
-  chunkSize: 5000
   indexName: "hexo-agolia-index-name"
   fields:
     - content:strip:truncate,0,500
