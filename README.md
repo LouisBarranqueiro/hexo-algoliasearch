@@ -1,5 +1,7 @@
 # hexo-algoliasearch
-[![npm version](https://img.shields.io/npm/v/hexo-algoliasearch.svg?style=flat-square)](https://www.npmjs.com/package/hexo-algoliasearch) [![npm dependencies](https://img.shields.io/david/LouisBarranqueiro/hexo-algoliasearch.svg?style=flat-square)](https://david-dm.org/LouisBarranqueiro/hexo-algoliasearch#info=dependencies&view=table) [![npm dev dependencies](https://img.shields.io/david/dev/LouisBarranqueiro/hexo-algoliasearch.svg?style=flat-square)](https://david-dm.org/LouisBarranqueiro/hexo-algoliasearch#info=devDependencies&view=table) [![npm download/month](https://img.shields.io/npm/dm/hexo-algoliasearch.svg?style=flat-square)](https://www.npmjs.com/package/hexo-algoliasearch) [![npm download total](https://img.shields.io/npm/dt/hexo-algoliasearch.svg?style=flat-square)](https://www.npmjs.com/package/hexo-algoliasearch) [![gitter chat](https://img.shields.io/gitter/room/LouisBarranqueiro/hexo-algoliasearch.svg?style=flat-square)](https://gitter.im/LouisBarranqueiro/hexo-algoliasearch)
+[![travis build status](https://img.shields.io/travis/LouisBarranqueiro/hexo-algoliasearch/master.svg?style=flat-square)](https://travis-ci.org/LouisBarranqueiro/hexo-algoliasearch)
+[![coveralls status](https://img.shields.io/coveralls/LouisBarranqueiro/hexo-algoliasearch.svg?style=flat-square)](https://coveralls.io/github/LouisBarranqueiro/hexo-algoliasearch)
+[![gitter chat](https://img.shields.io/gitter/room/LouisBarranqueiro/hexo-algoliasearch.svg?style=flat-square)](https://gitter.im/LouisBarranqueiro/hexo-algoliasearch)
 
 A plugin to index posts of your Hexo blog on Algolia
 

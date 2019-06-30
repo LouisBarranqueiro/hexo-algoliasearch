@@ -1,46 +1,57 @@
 {
-  "name": "hexo-algoliasearch",
-  "version": "0.3.2",
-  "description": "A plugin to index posts of your Hexo blog on Algolia",
-  "main": "index.js",
-  "scripts": {
-    "build": "./node_modules/@babel/cli/bin/babel.js src --out-dir lib",
-    "lint": "./node_modules/.bin/eslint .",
-    "lint:fix": "./node_modules/.bin/eslint . --fix",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LouisBarranqueiro/hexo-algolia.git"
-  },
-  "keywords": [
-    "hexo",
-    "algolia",
-    "algoliasearch",
-    "search",
-    "plugin"
-  ],
-  "author": "Louis Barranqueiro",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/LouisBarranqueiro/hexo-algoliasearch/issues"
-  },
-  "homepage": "https://github.com/LouisBarranqueiro/hexo-algoliasearch#readme",
-  "dependencies": {
-    "algoliasearch": "3.33.0",
-    "async": "3.0.1",
-    "hexo-util": "0.6.3",
-    "lodash": "4.17.11"
-  },
-  "devDependencies": {
-    "eslint": "6.0.1",
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/node": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^10.0.2",
-    "eslint-config-google": "0.13.0"
-  }
+    "name": "hexo-algoliasearch",
+    "version": "0.3.2",
+    "description": "A plugin to index posts of your Hexo blog on Algolia",
+    "main": "index.js",
+    "scripts": {
+        "postinstall": "cd test_blog && npm install",
+        "build": "./node_modules/@babel/cli/bin/babel.js src --out-dir lib --ignore **/*.spec.js",
+        "lint": "./node_modules/.bin/eslint .",
+        "lint:fix": "./node_modules/.bin/eslint . --fix",
+        "test": "jest --coverage",
+        "test:watch": "npm run test -- --watch",
+        "test:coveralls": "npm test -- --coverageReporters=text-lcov | coveralls",
+        "prepublish": "npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/LouisBarranqueiro/hexo-algolia.git"
+    },
+    "keywords": [
+        "hexo",
+        "algolia",
+        "algoliasearch",
+        "search",
+        "plugin"
+    ],
+    "author": "Louis Barranqueiro",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/LouisBarranqueiro/hexo-algoliasearch/issues"
+    },
+    "homepage": "https://github.com/LouisBarranqueiro/hexo-algoliasearch#readme",
+    "dependencies": {
+        "algoliasearch": "3.33.0",
+        "async": "3.0.1",
+        "hexo-util": "0.6.3",
+        "lodash": "4.17.11"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.4.4",
+        "@babel/core": "^7.4.5",
+        "@babel/node": "^7.4.5",
+        "@babel/preset-env": "^7.4.5",
+        "babel-cli": "^6.26.0",
+        "babel-eslint": "^10.0.2",
+        "babel-jest": "^24.8.0",
+        "coveralls": "^3.0.4",
+        "eslint": "6.0.1",
+        "eslint-config-google": "0.13.0",
+        "hexo": "^3.9.0",
+        "hexo-cli": "^2.0.0",
+        "jest": "^24.8.0"
+    },
+    "engines": {
+        "node": ">=6.0.0"
+    }
 }

@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`algolia algoliaCommand() should clear index and index posts on Algolia (Hexo config) 1`] = `
+Array [
+  Object {
+    "contentStripTruncate": "This is a test post
+",
+    "excerptStrip": "",
+    "objectID": 1,
+    "permalink": "http://localhost:4000/2019/06/30/hello-world/",
+    "photos": Array [],
+    "slug": "hello-world",
+    "tags": Array [],
+    "title": "Hello World",
+  },
+]
+`;
+
+exports[`algolia algoliaCommand() should clear index and index posts on Algolia (environment variables) 1`] = `
+Array [
+  Object {
+    "contentStripTruncate": "This is a test post
+",
+    "excerptStrip": "",
+    "objectID": 1,
+    "permalink": "http://localhost:4000/2019/06/30/hello-world/",
+    "photos": Array [],
+    "slug": "hello-world",
+    "tags": Array [],
+    "title": "Hello World",
+  },
+]
+`;
+
+exports[`algolia algoliaCommand() should not clear index and index posts on Algolia 1`] = `
+Array [
+  Object {
+    "contentStripTruncate": "This is a test post
+",
+    "excerptStrip": "",
+    "objectID": 1,
+    "permalink": "http://localhost:4000/2019/06/30/hello-world/",
+    "photos": Array [],
+    "slug": "hello-world",
+    "tags": Array [],
+    "title": "Hello World",
+  },
+]
+`;
+
+exports[`algolia preparePosts() should return a list of posts with only their title 1`] = `
+Array [
+  Object {
+    "content": "<span>the content of the <strong>post</strong></span>",
+    "objectID": 1,
+    "title": "the title of the post",
+  },
+  Object {
+    "content": "<span>the content of the <strong>post</strong></span>",
+    "objectID": 2,
+    "title": "the title of the post",
+  },
+  Object {
+    "content": "<span>the content of the <strong>post</strong></span>",
+    "objectID": 3,
+    "title": "the title of the post",
+  },
+]
+`;
+
+exports[`algolia preparePosts() should return a list of posts with the specified fields wand warn about unknown field 1`] = `
+Array [
+  Object {
+    "objectID": 1,
+    "title": "the title of the post",
+  },
+]
+`;
+
+exports[`algolia preparePosts() should return a list of posts with the specified fields with filters 1`] = `
+Array [
+  Object {
+    "contentStripTruncate": "the c",
+    "objectID": 1,
+    "title": "the title of the post",
+    "titleTruncate": "itle of th",
+  },
+  Object {
+    "contentStripTruncate": "the c",
+    "objectID": 2,
+    "title": "the title of the post",
+    "titleTruncate": "itle of th",
+  },
+  Object {
+    "contentStripTruncate": "the c",
+    "objectID": 3,
+    "title": "the title of the post",
+    "titleTruncate": "itle of th",
+  },
+]
+`;
+
+exports[`algolia preparePosts() should return a list of posts with the specified fields with filters 2`] = `
+Array [
+  Object {
+    "categories": Array [
+      "category-1",
+      "category-2",
+      "category-3",
+    ],
+    "contentStripTruncate": "the c",
+    "objectID": 1,
+    "tags": Array [
+      "tag-1",
+      "tag-2",
+      "tag-3",
+    ],
+    "title": "the title of the post",
+    "titleTruncate": "itle of th",
+  },
+  Object {
+    "categories": Array [
+      "category-1",
+      "category-2",
+      "category-3",
+    ],
+    "contentStripTruncate": "the c",
+    "objectID": 2,
+    "tags": Array [
+      "tag-1",
+      "tag-2",
+      "tag-3",
+    ],
+    "title": "the title of the post",
+    "titleTruncate": "itle of th",
+  },
+  Object {
+    "categories": Array [
+      "category-1",
+      "category-2",
+      "category-3",
+    ],
+    "contentStripTruncate": "the c",
+    "objectID": 3,
+    "tags": Array [
+      "tag-1",
+      "tag-2",
+      "tag-3",
+    ],
+    "title": "the title of the post",
+    "titleTruncate": "itle of th",
+  },
+]
+`;
+
+exports[`algolia preparePosts() should return a list of posts with the specified fields with filters 3`] = `
+Array [
+  Object {
+    "categories": Array [
+      "category-1",
+      "category-2",
+      "category-3",
+    ],
+    "contentStripTruncate": "the c",
+    "objectID": 1,
+    "tags": Array [
+      "tag-1",
+      "tag-2",
+      "tag-3",
+    ],
+    "title": "the title of the post",
+    "titleTruncate": "itle of th",
+  },
+  Object {
+    "categories": Array [
+      "category-1",
+      "category-2",
+      "category-3",
+    ],
+    "contentStripTruncate": "the c",
+    "objectID": 2,
+    "tags": Array [
+      "tag-1",
+      "tag-2",
+      "tag-3",
+    ],
+    "title": "the title of the post",
+    "titleTruncate": "itle of th",
+  },
+  Object {
+    "categories": Array [
+      "category-1",
+      "category-2",
+      "category-3",
+    ],
+    "contentStripTruncate": "the c",
+    "objectID": 3,
+    "tags": Array [
+      "tag-1",
+      "tag-2",
+      "tag-3",
+    ],
+    "title": "the title of the post",
+    "titleTruncate": "itle of th",
+  },
+]
+`;
