@@ -1,5 +1,4 @@
 # hexo-algoliasearch
-[![travis build status](https://img.shields.io/travis/LouisBarranqueiro/hexo-algoliasearch/master.svg?style=flat-square)](https://travis-ci.com/LouisBarranqueiro/hexo-algoliasearch)
 [![coveralls status](https://img.shields.io/coveralls/LouisBarranqueiro/hexo-algoliasearch.svg?style=flat-square)](https://coveralls.io/github/LouisBarranqueiro/hexo-algoliasearch)
 [![gitter chat](https://img.shields.io/gitter/room/LouisBarranqueiro/hexo-algoliasearch.svg?style=flat-square)](https://gitter.im/LouisBarranqueiro/hexo-algoliasearch)
 
