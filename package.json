@@ -4,7 +4,7 @@
     "description": "A plugin to index posts of your Hexo blog on Algolia",
     "main": "index.js",
     "scripts": {
-        "postinstall": "cd test_blog && npm install",
+        "install-test-blog": "cd test_blog && npm install",
         "build": "./node_modules/@babel/cli/bin/babel.js src --out-dir lib --ignore **/*.spec.js",
         "lint": "./node_modules/.bin/eslint .",
         "lint:fix": "./node_modules/.bin/eslint . --fix",

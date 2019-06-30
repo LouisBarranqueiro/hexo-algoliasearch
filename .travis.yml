@@ -4,6 +4,7 @@ node_js:
   - "lts/*"
 install:
   - npm install
+  - npm run install-test-blog
 script:
   - npm run lint
   - npm run test:coveralls
