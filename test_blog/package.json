@@ -1,0 +1,11 @@
+{
+  "name": "test-blog",
+  "version": "0.0.0",
+  "private": true,
+  "hexo": {
+    "version": "3.9.0"
+  },
+  "dependencies": {
+    "hexo-renderer-marked": "1.0.1"
+  }
+}

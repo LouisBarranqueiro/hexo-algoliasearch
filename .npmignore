@@ -5,3 +5,7 @@ node_modules
 .idea
 .travis.yml
 renovate.json
+test_blog
+.babelrc
+jest.config.js
+coverage
