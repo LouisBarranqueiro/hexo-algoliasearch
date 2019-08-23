@@ -6,6 +6,6 @@
     "version": "3.9.0"
   },
   "dependencies": {
-    "hexo-renderer-marked": "1.0.1"
+    "hexo-renderer-marked": "2.0.0"
   }
 }
