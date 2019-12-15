@@ -42,7 +42,7 @@
         "babel-cli": "6.26.0",
         "babel-eslint": "10.0.3",
         "babel-jest": "24.9.0",
-        "coveralls": "3.0.6",
+        "coveralls": "3.0.9",
         "eslint": "6.7.2",
         "hexo": "4.1.1",
         "jest": "24.9.0"
