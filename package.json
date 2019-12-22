@@ -44,7 +44,7 @@
         "babel-jest": "24.9.0",
         "coveralls": "3.0.9",
         "eslint": "6.7.2",
-        "hexo": "4.1.1",
+        "hexo": "4.2.0",
         "jest": "24.9.0"
     },
     "engines": {
