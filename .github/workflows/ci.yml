@@ -16,4 +16,4 @@ jobs:
     - name: Lint code
       run: npm run lint
     - name: Run tests and report coverage
-      run: npm run test:coverage
+      run: npm run test:coveralls
