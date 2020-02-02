@@ -2,6 +2,8 @@ name: CI
 on: [push]
 jobs:
   build:
+    env:
+      COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
