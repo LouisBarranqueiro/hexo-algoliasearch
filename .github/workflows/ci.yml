@@ -19,5 +19,5 @@ jobs:
       run: npm run lint
     - name: Run tests
       run: npm run test
-    - name: Report coverage
+    - name: Report tests coverage
       run: npm run test:coveralls
