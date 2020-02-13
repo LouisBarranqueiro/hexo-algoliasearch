@@ -106,44 +106,6 @@ export const preparePosts = (posts, fields, fieldsWithFilters) => {
   })
 }
 
-/**
- * Index posts on Algolia
- *
- * @param {Object} algoliaIndex - An Algolia index
- * @param {Array} posts - A list of posts to index
- * @param {number} chunkSize - A list of posts to index
- * @returns {void}
- */
-export const indexPostsOnAlgolia = (algoliaIndex, posts, chunkSize) => {
-  const chunkedPosts = splitIntoChunks(posts, chunkSize)
-  return Promise.all(chunkedPosts.map((posts) => {
-    return new Promise((resolve, reject) => {
-      algoliaIndex.saveObjects(posts, (error) => {
-        if (error) {
-          reject(error)
-        }
-        resolve()
-      })
-    })
-  }))
-}
-
-/**
- * Clear an Algolia index
- *
- * @param {Object} algoliaIndex - The algolia index to clear
- * @returns {Promise}
- */
-export const clearAlgoliaIndex = (algoliaIndex) => {
-  return new Promise((resolve, reject) => {
-    algoliaIndex.clearIndex((error) => {
-      if (error) {
-        reject(error)
-      }
-      resolve()
-    })
-  })
-}
 
 /**
  * Get fields without filters
@@ -174,7 +136,7 @@ const algoliaCommand = async(hexo, args, callback) => {
   await hexo.call('generate')
   await hexo.database.load()
 
-  let posts = hexo.database.model('Post').find({published: true}).toArray()
+  let posts = hexo.database.model('Post').find({published: true}).sort('date', 'asc').toArray()
 
   if (!posts.length) {
     hexo.log.info('There is no post to index.')
@@ -182,13 +144,14 @@ const algoliaCommand = async(hexo, args, callback) => {
   }
   posts = preparePosts(posts, fields, fieldsWithFilters)
 
+  const chunkedPosts = splitIntoChunks(posts, algoliaChunkSize)
   const algoliaClient = algoliasearch(algoliaAppId, algoliaAdminApiKey)
   const algoliaIndex = algoliaClient.initIndex(algoliaIndexName)
 
   if (args && !args.n) {
     hexo.log.info('Clearing index on Algolia...')
     try {
-      await clearAlgoliaIndex(algoliaIndex)
+      await algoliaIndex.clearObjects()
     }
     catch (error) {
       hexo.log.info(`Error has occurred during clearing index : ${error}`)
@@ -199,7 +162,7 @@ const algoliaCommand = async(hexo, args, callback) => {
 
   hexo.log.info('Indexing posts on Algolia...')
   try {
-    await indexPostsOnAlgolia(algoliaIndex, posts, algoliaChunkSize)
+    await Promise.all(chunkedPosts.map((posts) => algoliaIndex.saveObjects(posts)))
   }
   catch (error) {
     hexo.log.info(`Error has occurred during indexing posts : ${error}`)

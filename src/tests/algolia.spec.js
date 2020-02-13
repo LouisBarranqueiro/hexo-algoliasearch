@@ -1,8 +1,6 @@
 import algoliaCommand, {
-  clearAlgoliaIndex,
   getBasicFields,
   getFieldsWithFilters,
-  indexPostsOnAlgolia,
   pick,
   preparePosts,
   splitIntoChunks,
@@ -13,8 +11,8 @@ import algoliasearch, {mocks as algoliasearchMocks} from 'algoliasearch'
 
 jest.mock('algoliasearch', () => {
   const algoliaIndex = {
-    clearIndex: jest.fn((callback) => callback()),
-    saveObjects: jest.fn((posts, callback) => callback())
+    clearObjects: jest.fn(() => Promise.resolve()),
+    saveObjects: jest.fn(() => Promise.resolve())
   }
   const algoliaClient = {
     initIndex: jest.fn(() => algoliaIndex)
@@ -124,60 +122,6 @@ describe('algolia', () => {
     })
   })
 
-  describe('clearAlgoliaIndex()', () => {
-    it('should clear the index on Algolia', () => {
-      const algoliaIndex = {clearIndex: jest.fn((callback) => callback())}
-      clearAlgoliaIndex(algoliaIndex)
-      expect(algoliaIndex.clearIndex).toHaveBeenCalledTimes(1)
-    })
-
-    it('should throw error because clearing the index failed', () => {
-      const errorToThrow = Error('cannot clear index')
-      const algoliaIndex = {clearIndex: jest.fn((callback) => callback(errorToThrow))}
-      clearAlgoliaIndex(algoliaIndex)
-        .catch((error) => {
-          expect(error).toEqual(errorToThrow)
-        })
-      expect(algoliaIndex.clearIndex).toHaveBeenCalledTimes(1)
-    })
-  })
-
-  describe('indexPostsOnAlgolia()', () => {
-    it('should index posts on Algolia', async() => {
-      const posts = [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}]
-      const chunkSize = 2
-      const algoliaIndex = {
-        saveObjects: jest.fn((posts, callback) => callback())
-      }
-      await indexPostsOnAlgolia(algoliaIndex, posts, chunkSize)
-
-      const saveObjectsCalls = algoliaIndex.saveObjects.mock.calls
-      expect(algoliaIndex.saveObjects).toHaveBeenCalledTimes(3)
-      expect(saveObjectsCalls[0][0]).toEqual([{id: 1}, {id: 2}])
-      expect(saveObjectsCalls[1][0]).toEqual([{id: 3}, {id: 4}])
-      expect(saveObjectsCalls[2][0]).toEqual([{id: 5}])
-    })
-
-    it('should throw error because the indexation failed', async() => {
-      const posts = [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}]
-      const chunkSize = 2
-      const errorToThrow = Error('Cannot index objects')
-      const algoliaIndex = {
-        saveObjects: jest.fn((posts, callback) => callback(errorToThrow))
-      }
-      indexPostsOnAlgolia(algoliaIndex, posts, chunkSize)
-        .catch((error) => {
-          expect(error).toEqual(error)
-        })
-
-      const saveObjectsCalls = algoliaIndex.saveObjects.mock.calls
-      expect(algoliaIndex.saveObjects).toHaveBeenCalledTimes(3)
-      expect(saveObjectsCalls[0][0]).toEqual([{id: 1}, {id: 2}])
-      expect(saveObjectsCalls[1][0]).toEqual([{id: 3}, {id: 4}])
-      expect(saveObjectsCalls[2][0]).toEqual([{id: 5}])
-    })
-  })
-
   describe('algoliaCommand()', () => {
     it('should clear index and index posts on Algolia (environment variables)', async() => {
       process.env.ALGOLIA_APP_ID = 'env-algolia-app-id'
@@ -198,7 +142,7 @@ describe('algolia', () => {
 
       expect(algoliasearch).toHaveBeenCalledWith(process.env.ALGOLIA_APP_ID, process.env.ALGOLIA_ADMIN_API_KEY)
       expect(algoliaClient.initIndex).toHaveBeenCalledWith(process.env.ALGOLIA_INDEX_NAME)
-      expect(algoliaIndex.clearIndex).toHaveBeenCalledTimes(1)
+      expect(algoliaIndex.clearObjects).toHaveBeenCalledTimes(1)
       expect(algoliaIndex.saveObjects).toHaveBeenCalledTimes(1)
       expect(indexedPosts).toMatchSnapshot()
 
@@ -222,7 +166,7 @@ describe('algolia', () => {
       })
       expect(algoliasearch).toHaveBeenCalledWith(algoliaConfig.appId, algoliaConfig.adminApiKey)
       expect(algoliaClient.initIndex).toHaveBeenCalledWith(algoliaConfig.indexName)
-      expect(algoliaIndex.clearIndex).toHaveBeenCalledTimes(1)
+      expect(algoliaIndex.clearObjects).toHaveBeenCalledTimes(1)
       expect(algoliaIndex.saveObjects).toHaveBeenCalledTimes(1)
       expect(algoliaIndex.saveObjects.mock.calls).toMatchSnapshot()
     })
@@ -244,7 +188,7 @@ describe('algolia', () => {
 
       expect(algoliasearch).toHaveBeenCalledWith(algoliaConfig.appId, algoliaConfig.adminApiKey)
       expect(algoliaClient.initIndex).toHaveBeenCalledWith(algoliaConfig.indexName)
-      expect(algoliaIndex.clearIndex).not.toHaveBeenCalled()
+      expect(algoliaIndex.clearObjects).not.toHaveBeenCalled()
       expect(algoliaIndex.saveObjects).toHaveBeenCalledTimes(1)
       expect(algoliaIndex.saveObjects.mock.calls).toMatchSnapshot()
     })
@@ -255,8 +199,8 @@ describe('algolia', () => {
       const callbackCommand = jest.fn()
       const error = Error('Mocked error')
       const hexo = new Hexo(TEST_BLOG_PATH)
-      const prevClearIndexMock = algoliaIndex.clearIndex
-      algoliaIndex.clearIndex = jest.fn(() => {
+      const prevClearObjectsMock = algoliaIndex.clearObjects
+      algoliaIndex.clearObjects = jest.fn(() => {
         throw error
       })
 
@@ -266,11 +210,11 @@ describe('algolia', () => {
       const algoliaConfig = hexo.config.algolia
       expect(algoliasearch).toHaveBeenCalledWith(algoliaConfig.appId, algoliaConfig.adminApiKey)
       expect(algoliaClient.initIndex).toHaveBeenCalledWith(algoliaConfig.indexName)
-      expect(algoliaIndex.clearIndex).toHaveBeenCalledTimes(1)
+      expect(algoliaIndex.clearObjects).toHaveBeenCalledTimes(1)
       expect(algoliaIndex.saveObjects).not.toHaveBeenCalled()
       expect(callbackCommand).toHaveBeenCalledWith(error)
 
-      algoliaIndex.clearIndex = prevClearIndexMock
+      algoliaIndex.clearObjects = prevClearObjectsMock
     })
 
     it('should exit and log error if the posts cannot be indexed', async() => {
@@ -290,7 +234,7 @@ describe('algolia', () => {
       const algoliaConfig = hexo.config.algolia
       expect(algoliasearch).toHaveBeenCalledWith(algoliaConfig.appId, algoliaConfig.adminApiKey)
       expect(algoliaClient.initIndex).toHaveBeenCalledWith(algoliaConfig.indexName)
-      expect(algoliaIndex.clearIndex).toHaveBeenCalledTimes(1)
+      expect(algoliaIndex.clearObjects).toHaveBeenCalledTimes(1)
       expect(algoliaIndex.saveObjects).toHaveBeenCalledTimes(1)
       expect(callbackCommand).toHaveBeenCalledWith(error)
 
