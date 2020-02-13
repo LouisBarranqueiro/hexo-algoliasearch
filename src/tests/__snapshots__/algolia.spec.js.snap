@@ -27,7 +27,6 @@ Array [
         "title": "Post 2",
       },
     ],
-    [Function],
   ],
 ]
 `;
@@ -86,7 +85,6 @@ Array [
         "title": "Post 2",
       },
     ],
-    [Function],
   ],
 ]
 `;
@@ -96,26 +94,10 @@ Array [
   Array [
     Array [
       Object {
-        "contentStripTruncate": "This is the content of the post 2
-",
-        "excerptStrip": "",
-        "objectID": 0,
-        "permalink": "http://localhost:4000/2019/02/01/second-post/",
-        "photos": Array [],
-        "slug": "second-post",
-        "tags": Array [],
-        "title": "Post 2",
-      },
-    ],
-    [Function],
-  ],
-  Array [
-    Array [
-      Object {
         "contentStripTruncate": "This is the content of the post 1
 ",
         "excerptStrip": "",
-        "objectID": 1,
+        "objectID": 0,
         "permalink": "http://localhost:4000/2019/01/01/first-post/",
         "photos": Array [],
         "slug": "first-post",
@@ -123,7 +105,21 @@ Array [
         "title": "Post 1",
       },
     ],
-    [Function],
+  ],
+  Array [
+    Array [
+      Object {
+        "contentStripTruncate": "This is the content of the post 2
+",
+        "excerptStrip": "",
+        "objectID": 1,
+        "permalink": "http://localhost:4000/2019/02/01/second-post/",
+        "photos": Array [],
+        "slug": "second-post",
+        "tags": Array [],
+        "title": "Post 2",
+      },
+    ],
   ],
 ]
 `;
