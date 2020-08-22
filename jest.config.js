@@ -1,6 +1,6 @@
 module.exports = {
   coverageReporters: ['text', 'lcov'],
   collectCoverageFrom: ['src/algolia.js'],
-  coverageDirectory: 'coverage',
+  coverageDirectory: 'tests_coverage',
   testEnvironment: 'node',
 }
