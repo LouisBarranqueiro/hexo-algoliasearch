@@ -8,7 +8,7 @@
         "build": "./node_modules/@babel/cli/bin/babel.js src --out-dir lib --ignore **/*.spec.js",
         "lint": "./node_modules/.bin/eslint .",
         "lint:fix": "./node_modules/.bin/eslint . --fix",
-        "test": "jest --coverage",
+        "test": "npm run lint && jest --coverage",
         "test:watch": "npm run test -- --watch",
         "test:coveralls": "npm test -- --coverageReporters=text-lcov | coveralls",
         "prepublish": "npm run build"
@@ -42,6 +42,7 @@
         "babel-cli": "6.26.0",
         "babel-eslint": "10.1.0",
         "babel-jest": "25.5.1",
+        "codecov": "3.7.2",
         "coveralls": "3.1.0",
         "eslint": "6.8.0",
         "hexo": "4.2.1",

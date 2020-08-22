@@ -10,3 +10,4 @@ test_blog
 jest.config.js
 coverage
 src
+.DS_Store
