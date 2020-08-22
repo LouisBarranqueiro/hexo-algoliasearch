@@ -8,6 +8,7 @@ renovate.json
 test_blog
 .babelrc
 jest.config.js
-coverage
+test_coverage
+codecov.yml
 src
 .DS_Store
