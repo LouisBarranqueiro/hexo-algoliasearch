@@ -1,5 +1,5 @@
 node_modules
 .idea
 lib
-coverage
+tests_coverage
 .DS_Store
