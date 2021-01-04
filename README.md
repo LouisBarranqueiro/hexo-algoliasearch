@@ -13,7 +13,7 @@ npm install hexo-algoliasearch --save
 If Hexo detect automatically all plugins, that's all.
 
 If that is not the case, register the plugin in your `_config.yml` file :
-```
+```yml
 plugins:
   - hexo-algoliasearch
 ```
