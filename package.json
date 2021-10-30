@@ -35,10 +35,10 @@
         "striptags": "3.2.0"
     },
     "devDependencies": {
-        "@babel/cli": "7.15.7",
-        "@babel/core": "7.15.8",
-        "@babel/node": "7.15.8",
-        "@babel/preset-env": "7.15.8",
+        "@babel/cli": "7.16.0",
+        "@babel/core": "7.16.0",
+        "@babel/node": "7.16.0",
+        "@babel/preset-env": "7.16.0",
         "babel-cli": "6.26.0",
         "babel-eslint": "10.1.0",
         "babel-jest": "27.3.1",
