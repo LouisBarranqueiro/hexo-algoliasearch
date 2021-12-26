@@ -29,7 +29,7 @@ assignees: LouisBarranqueiro
 
 ### Plugin configuration
  <!-- Add the configuration of your plugin -->
- <!-- Make sure you obfuscate your appId, apiKey, adminApiKey 
+ <!-- Make sure you obfuscate your appId, apiKey, adminApiKey -->
 
 
 ### Additional information
