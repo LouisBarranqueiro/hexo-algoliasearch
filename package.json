@@ -36,9 +36,9 @@
     },
     "devDependencies": {
         "@babel/cli": "7.17.10",
-        "@babel/core": "7.17.12",
+        "@babel/core": "7.18.0",
         "@babel/node": "7.17.10",
-        "@babel/preset-env": "7.17.12",
+        "@babel/preset-env": "7.18.0",
         "babel-cli": "6.26.0",
         "babel-eslint": "10.1.0",
         "babel-jest": "28.1.0",
