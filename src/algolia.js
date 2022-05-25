@@ -132,11 +132,17 @@ const algoliaCommand = async(hexo, args, callback) => {
   const algoliaIndexName = process.env.ALGOLIA_INDEX_NAME || algoliaConfig.indexName
   // Algolia recommendation: split posts into chunks of 5000 to get a good indexing/insert performance
   const algoliaChunkSize = algoliaConfig.chunkSize || 5000
+  const hiddenKey = algoliaConfig.hidden || 'hidden'
 
   await hexo.call('generate')
   await hexo.database.load()
 
-  let posts = hexo.database.model('Post').find({published: true}).sort('date', 'asc').toArray()
+  let posts = hexo.database.model('Post').find({
+    published: true,
+    [hiddenKey]: {
+      $ne: true
+    }
+  }).sort('date', 'asc').toArray()
 
   if (!posts.length) {
     hexo.log.info('There is no post to index.')
