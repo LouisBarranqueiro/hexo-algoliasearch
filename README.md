@@ -48,7 +48,7 @@ algolia:
 | adminApiKey    | String |         | Your adminAPI key. It is use to create, delete, update your indexes. Optional, if the environment variable `ALGOLIA_ADMIN_API_KEY` is set |
 | chunkSize      | Number | 5000    | Records/posts are split in chunks to upload them. Algolia recommend to use `5000` for best performance. Be careful, if you are indexing post content, It can fail because of size limit. To overcome this, decrease size of chunks until it pass. |
 | indexName      | String |         | The name of the index in which posts are stored. Optional, if the environment variable `ALGOLIA_INDEX_NAME` is set|
-| indexName      | String | hidden | ignore indexing|
+| hidden         | String | hidden  | ignore indexing|
 | fields         | List   |         | The list of the field names to index. Separate field name and filters with `:`. Read [Filters](#filters) for more information |
 
 #### Filters
