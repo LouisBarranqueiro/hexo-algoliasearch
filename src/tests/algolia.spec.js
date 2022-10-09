@@ -247,6 +247,7 @@ describe('algolia', () => {
       await hexo.init()
       // mock the call to generate the blog so there is no post generated
       hexo.call = () => {}
+      hexo.database.load = () => {}
       await algoliaCommand(hexo, {}, callbackCommand)
 
       expect(algoliasearch).not.toHaveBeenCalled()
