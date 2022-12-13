@@ -7,7 +7,7 @@ A plugin to index posts of your Hexo blog on Algolia
 ## Installation
 
 ```
-npm install hexo-algoliasearch --save
+npm install hexo-algolia-search --save
 ```
 
 If Hexo detect automatically all plugins, that's all.
@@ -15,7 +15,7 @@ If Hexo detect automatically all plugins, that's all.
 If that is not the case, register the plugin in your `_config.yml` file :
 ```yml
 plugins:
-  - hexo-algoliasearch
+  - hexo-algolia-search
 ```
 
 ## Configuration
@@ -89,3 +89,6 @@ hexo algolia
 # Licence
 
 hexo-algoliasearch is under [MIT](https://github.com/LouisBarranqueiro/hexo-algoliasearch/blob/master/LICENSE)
+
+copyright
+based on https://github.com/LouisBarranqueiro/hexo-algoliasearch
