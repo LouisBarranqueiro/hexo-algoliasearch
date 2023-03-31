@@ -40,7 +40,7 @@
         "@babel/core": "7.21.4",
         "@babel/eslint-parser": "7.21.3",
         "@babel/node": "7.20.7",
-        "@babel/preset-env": "7.20.2",
+        "@babel/preset-env": "7.21.4",
         "babel-cli": "6.26.0",
         "babel-jest": "29.5.0",
         "codecov": "3.8.3",
