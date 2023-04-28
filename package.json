@@ -36,11 +36,11 @@
         "striptags": "3.2.0"
     },
     "devDependencies": {
-        "@babel/cli": "7.21.0",
-        "@babel/core": "7.21.4",
+        "@babel/cli": "7.21.5",
+        "@babel/core": "7.21.5",
         "@babel/eslint-parser": "7.21.3",
         "@babel/node": "7.20.7",
-        "@babel/preset-env": "7.21.4",
+        "@babel/preset-env": "7.21.5",
         "babel-cli": "6.26.0",
         "babel-jest": "29.5.0",
         "codecov": "3.8.3",
