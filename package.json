@@ -42,12 +42,12 @@
         "@babel/node": "7.22.6",
         "@babel/preset-env": "7.22.7",
         "babel-cli": "6.26.0",
-        "babel-jest": "29.6.0",
+        "babel-jest": "29.6.1",
         "codecov": "3.8.3",
         "coveralls": "3.1.1",
         "eslint": "8.44.0",
         "hexo": "6.3.0",
-        "jest": "29.6.0"
+        "jest": "29.6.1"
     },
     "engines": {
         "node": ">=14.0.0"
