@@ -4,7 +4,7 @@ node_modules
 .github
 .idea
 .travis.yml
-renovate.json
+dependabot.yml
 test_blog
 .babelrc
 jest.config.js
