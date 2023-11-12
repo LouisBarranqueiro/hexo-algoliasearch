@@ -1,6 +1,6 @@
 {
     "name": "hexo-algoliasearch",
-    "version": "2.1.0",
+    "version": "2.0.1",
     "description": "A plugin to index posts of your Hexo blog on Algolia",
     "main": "index.js",
     "scripts": {
