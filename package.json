@@ -8,10 +8,10 @@
         "build": "./node_modules/@babel/cli/bin/babel.js src --out-dir lib --ignore **/*.spec.js",
         "lint": "./node_modules/.bin/eslint .",
         "lint:fix": "./node_modules/.bin/eslint . --fix",
-        "test": "npm run lint && jest --coverage",
+        "test": "npm run lint && jest",
         "test:update": "npm run lint && jest -u",
         "test:watch": "npm run test -- --watch",
-        "test:coveralls": "npm test -- --coverageReporters=text-lcov | coveralls",
+        "test:coverage": "npm test --  --coverage",
         "prepublish": "npm run build"
     },
     "repository": {
@@ -44,7 +44,6 @@
         "babel-cli": "6.26.0",
         "babel-jest": "29.7.0",
         "codecov": "3.8.3",
-        "coveralls": "3.1.1",
         "eslint": "8.53.0",
         "hexo": "6.3.0",
         "jest": "29.7.0"

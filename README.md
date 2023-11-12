@@ -1,5 +1,6 @@
 # hexo-algoliasearch
-[![coveralls status](https://img.shields.io/coveralls/LouisBarranqueiro/hexo-algoliasearch.svg?style=flat-square)](https://coveralls.io/github/LouisBarranqueiro/hexo-algoliasearch)
+[![code coverage](https://img.shields.io/codecov/c/github/LouisBarranqueiro/hexo-algoliasearch?style=flat-square
+)](https://app.codecov.io/gh/LouisBarranqueiro/hexo-algoliasearch/tree/main)
 [![gitter chat](https://img.shields.io/gitter/room/LouisBarranqueiro/hexo-algoliasearch.svg?style=flat-square)](https://gitter.im/LouisBarranqueiro/hexo-algoliasearch)
 
 A plugin to index posts of your Hexo blog on Algolia
