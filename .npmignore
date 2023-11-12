@@ -8,7 +8,7 @@ dependabot.yml
 test_blog
 .babelrc
 jest.config.js
-test_coverage
+tests_coverage
 codecov.yml
 src
 .DS_Store
