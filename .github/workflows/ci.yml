@@ -11,6 +11,8 @@ jobs:
     - name: Install dependencies
       run: npm install && npm run install-test-blog
     - name: Run tests
-      run: npm test
-    - name: Report tests coverage to Codecov
-      run: npx codecov tests_coverage --token=${{ secrets.CODECOV_TOKEN }}
+      run: npm run test:coverage
+    - uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        full_report: tests_coverage
