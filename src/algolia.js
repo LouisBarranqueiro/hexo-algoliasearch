@@ -133,7 +133,6 @@ const algoliaCommand = async(hexo, args, callback) => {
   // Algolia recommendation: split posts into chunks of 5000 to get a good indexing/insert performance
   const algoliaChunkSize = algoliaConfig.chunkSize || 5000
 
-  await hexo.call('generate')
   await hexo.database.load()
 
   let posts = hexo.database.model('Post').find({published: true}).sort('date', 'asc').toArray()
